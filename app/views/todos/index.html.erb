@@ -1,6 +1,35 @@
-<h1>TODO</h1>
-<ul class="todos">
-  <% @todos.each do |todo| %>
-    <li class="todo"><%= "#{todo.task}" %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h2 class="bg-light mt-3 py-1">TODOリスト</h2>
+  <form action="">
+    <div class="form-row">
+      <div class="form-group col-sm-9">
+        <label for="inputName" class="">タスク</label>
+        <input type="text" class="form-control" id="inputTask" placeholder="">
+      </div>
+      <div class="form-group col-sm-3">
+        <label for="inputLimit" class="">詳細</label>
+        <input type="textarea" class="form-control" id="inputDatail" placeholder="">
+      </div>
+    </div>
+    <input type="button" id="btnAdd" class="btn btn-primary mb-3" value="追加">
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-hover" id="todoList">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タスク内容</th>
+          <th>詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @todos.each do |todo| %>
+          <th><%= "#{todo.id}" %></th>
+          <th><%= "#{todo.title}" %></th>
+          <th><%= "#{todo.detail}" %></th>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
