@@ -1,19 +1,35 @@
-<h1>TODO</h1>
-<ul class="todos">
-  <% @todos.each do |todo| %>
-    <li class="todo"><%= "#{todo.task}" %></li>
-  <% end %>
-</ul>
-
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
-      </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
+<div class="container">
+  <h2 class="bg-light mt-3 py-1">TODOリスト</h2>
+  <form action="">
+    <div class="form-row">
+      <div class="form-group col-sm-9">
+        <label for="inputName" class="">タスク</label>
+        <input type="text" class="form-control" id="inputTask" placeholder="">
+      </div>
+      <div class="form-group col-sm-3">
+        <label for="inputLimit" class="">詳細</label>
+        <input type="textarea" class="form-control" id="inputDatail" placeholder="">
+      </div>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <input type="button" id="btnAdd" class="btn btn-primary mb-3" value="追加">
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-hover" id="todoList">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タスク内容</th>
+          <th>詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @todos.each do |todo| %>
+          <th><%= "#{todo.id}" %></th>
+          <th><%= "#{todo.title}" %></th>
+          <th><%= "#{todo.detail}" %></th>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
