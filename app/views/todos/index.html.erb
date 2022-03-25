@@ -24,7 +24,7 @@
           <tr>
             <th><%= "#{todo.id}" %></th>
             <th><%= "#{todo.task}" %></th>
-            <th>削除</th>
+            <th><%= button_to "削除", todo_path(todo), method: :delete, class: "btn btn-danger" %></th>
           </tr>
         <% end %>
       </tbody>
