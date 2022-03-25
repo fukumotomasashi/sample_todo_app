@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="bg-light mt-3 py-1">TODOリスト</h2>
-  <%= form_with url: "/todos" do |f| %>
+  <%= form_with model: @todo do |f| %>
     <div class="form-row">
       <div class="form-group col-sm-9">
         <%= f.label :task, "タスク" %>
@@ -21,9 +21,11 @@
       </thead>
       <tbody>
         <% @todos.each do |todo| %>
-          <th><%= "#{todo.id}" %></th>
-          <th><%= "#{todo.task}" %></th>
-          <th>削除</th>
+          <tr>
+            <th><%= "#{todo.id}" %></th>
+            <th><%= "#{todo.task}" %></th>
+            <th>削除</th>
+          </tr>
         <% end %>
       </tbody>
     </table>
