@@ -12,9 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_03_21_040158) do
   create_table "todos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "detail"
-    t.boolean "delete_flg", default: false
+    t.string "task", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
