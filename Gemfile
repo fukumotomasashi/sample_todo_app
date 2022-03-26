@@ -70,3 +70,12 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :production do
+  gem 'unicorn'
+end
+
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+
+gem 'pry-rails'

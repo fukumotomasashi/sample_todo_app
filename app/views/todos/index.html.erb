@@ -1,6 +1,33 @@
-<h1>TODO</h1>
-<ul class="todos">
-  <% @todos.each do |todo| %>
-    <li class="todo"><%= "#{todo.task}" %></li>
+<div class="container">
+  <h2 class="bg-light mt-3 py-1">TODOリスト</h2>
+  <%= form_with model: @todo do |f| %>
+    <div class="form-row">
+      <div class="form-group col-sm-9">
+        <%= f.label :task, "タスク" %>
+        <%= f.text_field :task, class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit "追加", class: "btn btn-primary mb-3" %>
   <% end %>
-</ul>
+
+  <div class="table-responsive">
+    <table class="table table-hover" id="todoList">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タスク内容</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @todos.each do |todo| %>
+          <tr>
+            <th><%= "#{todo.id}" %></th>
+            <th><%= "#{todo.task}" %></th>
+            <th><%= button_to "削除", todo_path(todo), method: :delete, class: "btn btn-danger" %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
